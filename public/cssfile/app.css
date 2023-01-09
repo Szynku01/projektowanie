@@ -54,6 +54,7 @@
 
 .navbar .nav-list .nav-item:hover {
     background: #bebebe;
+    transform: translate(10px, 0);
 }
 
 .navbar .nav-list .nav-item i {
@@ -85,6 +86,7 @@
 
 .sidebar-bottom .log-out:hover {
     color: #333333;
+    transform: translate(12px, 0);
 }
 
 .sidebar-bottom .log-out i {
