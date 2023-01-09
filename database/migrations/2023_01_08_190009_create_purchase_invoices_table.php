@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('purchase_invoices', function (Blueprint $table) {
             $table->integer('invoice_number', true);
-            $table->date('sale_date');
+            $table->date('purchase_date');
             $table->decimal('brutto_value', 10,2 );
             $table->decimal('netto_value', 10,2 );
         });

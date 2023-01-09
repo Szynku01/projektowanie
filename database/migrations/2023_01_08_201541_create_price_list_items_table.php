@@ -19,7 +19,11 @@ return new class extends Migration
             $table->string('commodity_code');
             $table->foreign('commodity_code')
                 ->references('commodity_code')
-                ->on('commodities');        
+                ->on('commodities'); 
+            $table->integer('price_list_id');
+            $table->foreign('price_list_id')
+                ->references('price_list_number')
+                ->on('price_lists');         
             });
     }
 
