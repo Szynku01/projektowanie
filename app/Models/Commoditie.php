@@ -13,6 +13,8 @@ class Commoditie extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'commodity_code',
         'commodity_name',
@@ -34,7 +36,7 @@ class Commoditie extends Model
         return $this->hasMany(Purchase_invoice_item::class);
     }
 
-    public function price_lise_item()
+    public function price_list_item()
     {
         return $this->hasMany(Price_list_item::class);
     }

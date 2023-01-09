@@ -10,6 +10,8 @@ class Sales_invoice extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'invoice_number',
         'sale_date',

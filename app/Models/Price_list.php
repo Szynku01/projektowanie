@@ -10,6 +10,8 @@ class Price_list extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'price_list_number',
         'date_from',

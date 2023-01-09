@@ -10,6 +10,8 @@ class Measurement_unit extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'unit_shortcut',
         'name'

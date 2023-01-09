@@ -11,6 +11,8 @@ class Sales_invoice_item extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'item_number',
         'invoice_number_id',
