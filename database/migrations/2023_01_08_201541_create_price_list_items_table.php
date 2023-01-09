@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('price_list_items', function (Blueprint $table) {
             $table->integer('item_number', true);
             $table->decimal('price', 10, 2);
-            $table->string('commodity_code_id', 4);
+            $table->string('commodity_code');
             $table->foreign('commodity_code')
                 ->references('commodity_code')
                 ->on('commodities');        

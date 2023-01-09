@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('purchase_invoice_items', function (Blueprint $table) {
+        Schema::create('sales_invoice_items', function (Blueprint $table) {
         $table->integer('item_number', true);
         $table->integer('invoice_number_id');
         $table->foreign('invoice_number_id')
             ->references('invoice_number')
-            ->on('purchase_invoices');
+            ->on('sales_invoices');
         $table->integer('quantity');
         $table->decimal('unit_price', 10,2 );
         $table->decimal('brutto_price', 10,2 );
@@ -26,8 +26,8 @@ return new class extends Migration
         $table->integer('VAT_rate');
         $table->string('commodity_code');
         $table->foreign('commodity_code')
-            ->references('commodity_code')
-            ->on('commodities');
+                ->references('commodity_code')
+                ->on('commodities');
         });
     }
 
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchase_invoice_items');
+        Schema::dropIfExists('sales_invoice_items');
     }
 };
