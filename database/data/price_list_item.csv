@@ -1,6 +1,4 @@
-price
-159.99
-99.99
-249.99
-199.99
-799.99
+price;commodity_code;price_list_id
+159.99;aa01;1
+99.99;ab02;2
+249.99;ba15;2

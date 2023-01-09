@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(CommoditieSeeder::class);
         $this->call(Measurement_unitSeeder::class);
-        $this->call(Price_list_itemSeeder::class);
+        $this->call(CommoditieSeeder::class);
         $this->call(Price_listSeeder::class);
-        $this->call(Purchase_invoice_itemSeeder::class);
+        $this->call(Price_list_itemSeeder::class);
         $this->call(Purchase_invoiceSeeder::class);
-        $this->call(Sales_invoice_itemSeeder::class);
+        $this->call(Purchase_invoice_itemSeeder::class);
         $this->call(Sales_invoiceSeeder::class);
+        $this->call(Sales_invoice_itemSeeder::class);
     }
 }

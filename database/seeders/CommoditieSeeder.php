@@ -24,6 +24,7 @@ class CommoditieSeeder extends Seeder
                     [
                         "commodity_code" => $data['0'],
                         "commodity_name" => $data['1'],
+                        "unit_shortcut" => $data['2'],
                     ]);
             }
             $firstLine = false;

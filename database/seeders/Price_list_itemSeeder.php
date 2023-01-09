@@ -18,11 +18,13 @@ class Price_list_itemSeeder extends Seeder
         $csvFile = fopen(base_path("database/data/price_list_item.csv"), 'r');
 
         $firstLine = true;
-        while(($data = fgetcsv($csvFile, 100)) !== FALSE) {
+        while(($data = fgetcsv($csvFile, 100, ';')) !== FALSE) {
             if (!$firstLine) {
                 Price_list_item::create(
                     [
-                        "price" => $data
+                        "price" => $data[0],
+                        "commodity_code" => $data[1],
+                        "price_list_id" => $data[2],
                     ]);
             }
             $firstLine = false;

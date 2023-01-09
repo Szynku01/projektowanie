@@ -22,11 +22,13 @@ class Sales_invoice_itemSeeder extends Seeder
             if (!$firstLine) {
                 Sales_invoice_item::create(
                     [
-                        "quantity" => $data['0'],
-                        "unit_price" => $data['1'],
-                        "brutto_price" => $data['2'],
-                        "netto_price" => $data['3'],
-                        "VAT_rate" => $data['4'],
+                        "invoice_number_id" => $data['0'],
+                        "quantity" => $data['1'],
+                        "unit_price" => $data['2'],
+                        "brutto_price" => $data['3'],
+                        "netto_price" => $data['4'],
+                        "VAT_rate" => $data['5'],
+                        "commodity_code" => $data['6'],
                     ]);
             }
             $firstLine = false;
