@@ -21,18 +21,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         <nav class="navbar">
             <ul class="nav-list">
                 <div class="nav-item">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <li class="item">Opcja 1</li>
+                    <i class="fa-solid fa-plus"></i>
+                    <li class="item">Dodaj pozycje cennika</li>
+                </div>
+
+                <div class="nav-item">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                    <li class="item">Dochodowe Towary</li>
                 </div>
 
                 <div class="nav-item">
                     <i class="fa-solid fa-chart-simple"></i>
-                    <li class="item">Opcja 1</li>
-                </div>
-
-                <div class="nav-item">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <li class="item">Opcjaadad 1</li>
+                    <li class="item">Popularność towarów</li>
                 </div>
             </ul>
         </nav>

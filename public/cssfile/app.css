@@ -33,7 +33,7 @@
 .navbar {
     display: flex;
     flex-direction: column;
-    margin-top: -300px;
+    margin-top: -250px;
 }
 
 .navbar .nav-list {
