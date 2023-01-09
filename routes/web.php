@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('most_profitable_commodities');
+    return view('commodity_info');
 });
