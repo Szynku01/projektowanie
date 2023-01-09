@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+
+use Illuminate\Database\Seeder;
 use App\Models\Measurement_unit;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 
 class Measurement_unitSeeder extends Seeder
 {
