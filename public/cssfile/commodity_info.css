@@ -1,0 +1,146 @@
+.wrapper {
+    width: 100%;
+    background: #fff;
+    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25));
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.wrapper .header {
+    margin-bottom: .7rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .header h1 {
+    font-size: 30px;
+}
+
+.wrapper .header .btn-edit {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #939393;
+    border-radius: 10px;
+    padding: .3rem 4rem;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.wrapper .header .btn-edit:hover {
+    transform: scale(1.1);
+    background: #d9d9d9;
+}
+
+.main-info {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+}
+
+.main-info .img {
+    background-color: #d9d9d9;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.main-info .img i {
+    font-size: 80px;
+    color: #fdfdfd;
+}
+
+.main-info .names {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1rem;
+    margin-bottom: -3rem;
+}
+
+.main-info .names h3 {
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.main-info .names h3 span {
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem .3rem;
+} 
+
+.infos .info {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #808080;
+    padding: .5rem .3rem;
+    align-items: center;
+}
+
+.infos .info .label {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: .6rem;
+}
+
+.infos .info .label i {
+    font-size: 40px;
+    color: #000;
+}
+
+.infos .info .label h2 {
+    font-size: 28px;
+}
+
+.infos .info .value {
+   font-size: 22px; 
+   margin-left: auto;
+}
+
+.bottom {
+    display: flex;
+    justify-content: end;
+}
+
+.bottom .btn {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #939393;
+    border-radius: 10px;
+    padding: .3rem 6rem;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.bottom .btn:hover {
+    transform: scale(1.1);
+    background: #d9d9d9;
+}
+
+
+
+
+
+
