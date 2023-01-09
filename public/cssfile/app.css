@@ -14,6 +14,11 @@
 .profile-logo {
     position: relative;
     margin-top: 1rem;
+    transition: all ease-in-out .3s;
+}
+
+.profile-logo:hover {
+    transform: scale(1.1);
 }
 
 .profile-logo i {
@@ -54,6 +59,7 @@
 
 .navbar .nav-list .nav-item:hover {
     background: #bebebe;
+    transform: translate(10px, 0);
 }
 
 .navbar .nav-list .nav-item i {
@@ -85,6 +91,7 @@
 
 .sidebar-bottom .log-out:hover {
     color: #333333;
+    transform: translate(12px, 0);
 }
 
 .sidebar-bottom .log-out i {
