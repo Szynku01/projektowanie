@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class PurchaseInvoiceItemController extends Controller
 {
+    public function amountOfCommodities() {
+        
+    }
+    
     /**
      * Display a listing of the resource.
      *

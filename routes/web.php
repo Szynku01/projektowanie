@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CommoditieController;
+use App\Http\Controllers\PriceListItemController;
+use App\Http\Controllers\SalesInvoiceItemController;
+use App\Models\Commoditie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +21,18 @@ Route::get('/', function () {
     return view('commodity_info');
 });
 
-Route::get('/', function () {
-    return view('price_list_form');
-});
+
+
+Route::get('/popularneTowary', [SalesInvoiceItemController::class, 'popularneTowary'])->name('popularneTowary');
+
+Route::get('/dochodoweTowary', [SalesInvoiceItemController::class, 'dochodoweTowary'])->name('dochodoweTowary');
+
+Route::get('/towarInfo', [SalesInvoiceItemController::class, 'towarInfo'])->name('towarInfo');
+
+Route::get('/stworzCennik', [PriceListItemController::class, 'create'])->name('stworzCennik');
+
+
+
+
+
+

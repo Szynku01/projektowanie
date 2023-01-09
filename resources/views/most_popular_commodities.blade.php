@@ -7,7 +7,6 @@
 @extends('app')
 @section('content')
 <div class="wrapper">
-
     <div class="stats most-popular">
         <h1 class="header">Najpopularniejsze</h1>
 
@@ -18,7 +17,7 @@
             </div>
 
             <div class="grid">
-
+                @foreach ($mosts as $most)
                 <div class="card">
                     <div class="info">
                         <div class="img">
@@ -27,17 +26,19 @@
 
                         <div class="names">
                             <h3>Towar A</h3>
-                            <p>Kategoria</p>
+                            <p>{{ $most->commodity_code }}</p>
                         </div>
                     </div>
 
                     <div class="more-info">
-                        <h3>123</h3>
-                        <button class="btn">Szczegóły</button>
+                        <h3>{{ $most->count }}</h3>
+                        <button class="btn"><a href="{{ route('towarInfo') }}">Szczegoly</a></button>
                     </div>
                 </div>
+                @endforeach
+               
 
-                <div class="card">
+                {{-- <div class="card">
                     <div class="info">
                         <div class="img">
                             <i class="fa-solid fa-image"></i>
@@ -45,7 +46,7 @@
 
                         <div class="names">
                             <h3>Towar B</h3>
-                            <p>Kategoria</p>
+                            <p>Kod</p>
                         </div>
                     </div>
 
@@ -53,7 +54,7 @@
                         <h3>123</h3>
                         <button class="btn">Szczegóły</button>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
@@ -74,6 +75,7 @@
 
             <div class="grid">
 
+                @foreach ($leasts as $least)
                 <div class="card">
                     <div class="info">
                         <div class="img">
@@ -82,17 +84,18 @@
 
                         <div class="names">
                             <h3>Towar A</h3>
-                            <p>Kategoria</p>
+                            <p>{{ $least->commodity_code }}</p>
                         </div>
                     </div>
 
                     <div class="more-info">
-                        <h3>123</h3>
+                        <h3>{{ $least->count }}</h3>
                         <button class="btn">Szczegóły</button>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="card">
+                {{-- <div class="card">
                     <div class="info">
                         <div class="img">
                             <i class="fa-solid fa-image"></i>
@@ -100,7 +103,7 @@
 
                         <div class="names">
                             <h3>Towar B</h3>
-                            <p>Kategoria</p>
+                            <p>Kod</p>
                         </div>
                     </div>
 
@@ -108,7 +111,7 @@
                         <h3>123</h3>
                         <button class="btn">Szczegóły</button>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
