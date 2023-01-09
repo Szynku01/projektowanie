@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    <link rel="stylesheet" href="{{ asset('cssfile/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('cssfile/app.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfile/style.css') }}">
     <link rel="stylesheet" 
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -43,5 +43,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         </div>
 
     </aside>
+
+    <main class="content">
+        @yield('content')
+    </main>
 </body>
 </html>
