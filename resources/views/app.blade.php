@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset('cssfile/style.css') }}">
     <link rel="stylesheet" 
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    @yield('css')
 </head>
 <body>
     <aside class="sidebar">
