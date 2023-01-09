@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('most_popular_commodities');
 });
+
+Route::get('/', function () {
+    return view('price_list_form');
+});
