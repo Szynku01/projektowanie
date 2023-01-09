@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faktura_sprzedazy', function (Blueprint $table) {
-            $table->integer('numer_faktury', true);
-            $table->date('data_sprzedazy');
-            $table->decimal('wartosc_brutto', 10,2 );
-            $table->decimal('wartosc_netto', 10,2 );
+        Schema::create('measurement_units', function (Blueprint $table) {
+            $table->string('unit_shortcut', 4)->unique();
+            $table->string('name', 60)->unique();
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faktura_sprzedazy');
+        Schema::dropIfExists('measurement_units');
     }
 };

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cennik', function (Blueprint $table) {
-            $table->integer('numer_cennika', true);
-            $table->date('data_od');
-            $table->date('data_do');
+        Schema::create('sales_invoices', function (Blueprint $table) {
+            $table->integer('invoice_number', true);
+            $table->date('sale_date');
+            $table->decimal('brutto_value', 10,2 );
+            $table->decimal('netto_value', 10,2 );
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cennik');
+        Schema::dropIfExists('sales_invoices');
     }
 };

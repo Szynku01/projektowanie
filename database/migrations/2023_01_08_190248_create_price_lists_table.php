@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jednostka_miary', function (Blueprint $table) {
-            $table->string('skrot_nazwy', 4)->unique();
-            $table->string('nazwa_jednostki_miary', 60)->unique();
+        Schema::create('price_lists', function (Blueprint $table) {
+            $table->integer('price_list_number', true);
+            $table->date('date_from');
+            $table->date('date_to');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jednostka_miary');
+        Schema::dropIfExists('price_lists');
     }
 };

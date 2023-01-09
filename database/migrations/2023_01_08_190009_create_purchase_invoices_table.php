@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faktura_zakupu', function (Blueprint $table) {
-            $table->integer('numer_faktury', true);
-            $table->date('data_zakupu');
-            $table->decimal('wartosc_brutto', 10,2 );
-            $table->decimal('wartosc_netto', 10,2 );
+        Schema::create('purchase_invoices', function (Blueprint $table) {
+            $table->integer('invoice_number', true);
+            $table->date('sale_date');
+            $table->decimal('brutto_value', 10,2 );
+            $table->decimal('netto_value', 10,2 );
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faktura_zakupu');
+        Schema::dropIfExists('purchase_invoices');
     }
 };

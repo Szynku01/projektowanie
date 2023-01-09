@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cennik_pozycja', function (Blueprint $table) {
-            $table->integer('numer_pozycji', true);
-            $table->decimal('cena', 10, 2);
-            $table->string('towar_kod_towaru', 4);
-            $table->foreign('towar_kod_towaru')
-                ->references('kod_towaru')
-                ->on('towar');        
+        Schema::create('price_list_items', function (Blueprint $table) {
+            $table->integer('item_number', true);
+            $table->decimal('price', 10, 2);
+            $table->string('commodity_code_id', 4);
+            $table->foreign('commodity_code')
+                ->references('commodity_code')
+                ->on('commodities');        
             });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cennik_pozycja');
+        Schema::dropIfExists('price_list_items');
     }
 };
