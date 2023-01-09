@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commoditie;
 use Illuminate\Http\Request;
 
 class CommoditieController extends Controller
@@ -12,8 +13,7 @@ class CommoditieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {    
     }
 
     /**

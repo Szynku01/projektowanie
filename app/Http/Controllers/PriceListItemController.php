@@ -23,7 +23,7 @@ class PriceListItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('price_list_form');
     }
 
     /**

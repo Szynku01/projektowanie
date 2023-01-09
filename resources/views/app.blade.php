@@ -22,17 +22,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
             <ul class="nav-list">
                 <div class="nav-item">
                     <i class="fa-solid fa-plus"></i>
-                    <li class="item">Dodaj pozycje cennika</li>
+                    <li class="item"><a href="{{ route('stworzCennik') }}">Dodaj pozycje cennika</a></li>
                 </div>
 
                 <div class="nav-item">
                     <i class="fa-solid fa-money-bill-trend-up"></i>
-                    <li class="item">Dochodowe Towary</li>
+                    <li class="item"><a href="{{ route('dochodoweTowary') }}">Dochodowe Towary</a></li>
                 </div>
 
                 <div class="nav-item">
                     <i class="fa-solid fa-chart-simple"></i>
-                    <li class="item">Popularność towarów</li>
+                    <li class="item"><a href="{{ route('popularneTowary') }}">Popularność towarów</a></li>
                 </div>
             </ul>
         </nav>

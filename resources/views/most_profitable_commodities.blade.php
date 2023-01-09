@@ -1,6 +1,6 @@
 {{-- Podlaczenie swojego css --}}
 @section('css')
-<link rel="stylesheet" href="{{ asset('cssfile/most_profitable_commodities.blade.css') }}">
+<link rel="stylesheet" href="{{ asset('cssfile/most_profitable_commodities.css') }}">
 @endsection
 
 {{-- Pisanie frontu --}}

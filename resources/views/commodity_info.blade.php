@@ -59,7 +59,7 @@
         </div>
 
         <div class="bottom">
-            <button class="btn">Wróć</button> 
+            <button class="btn"><a href="{{ route('popularneTowary') }}">Wróć</a></button> 
          </div>
     </div>
 @endsection

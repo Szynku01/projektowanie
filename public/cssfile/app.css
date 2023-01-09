@@ -73,6 +73,11 @@
     color: #000;
 }
 
+.navbar .nav-list .nav-item a {
+    text-decoration: none;
+    color: black;
+}
+
 .sidebar-bottom {
     border-top: 1px solid #c2c2c2;
     width: 90%;
