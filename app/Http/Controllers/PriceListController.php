@@ -27,7 +27,7 @@ class PriceListController extends Controller
      */
     public function create()
     {
-        return view('price_list_form.blade.php');
+        return view('price_list_form');
     }
 
     /**
