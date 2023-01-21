@@ -9,10 +9,10 @@
     <h1 class="header">Edycja pozycji cennika</h1>
         <form action="/price_list_item" method="POST">
             @csrf
-            <label class="label">Nazwa towaru</label> <input type="text" name="Nazwa towaru" placeholder="Nazwa towaru" value=$commodity_name/>
-            <label class="label">Kod towaru</label> <input type="text" name="Kod towaru" placeholder="Kod towaru" value=$commodity_code/>
-            <label class="label">Jednostka miary</label> <input type="text" name="Jednostka miary" placeholder="Jednostka miary" value=$unit_shortcut/>
-            <label class="label">Cena jednostkowa</label> <input type="text" name="Cena jednostkowa" placeholder="Cena jednostkowa" value=$price/>
+            <label class="label">Nazwa towaru</label> <input type="text" name="Nazwa towaru" placeholder="Nazwa towaru" value="{{ $commodity_name }}"/>
+            <label class="label">Kod towaru</label> <input type="text" name="Kod towaru" placeholder="Kod towaru" value="{{ $commodity_code }}"/>
+            <label class="label">Jednostka miary</label> <input type="text" name="Jednostka miary" placeholder="Jednostka miary" value="{{ $unit_shortcut }}"/>
+            <label class="label">Cena jednostkowa</label> <input type="text" name="Cena jednostkowa" placeholder="Cena jednostkowa" value="{{ $price }}"/>
 
             <input class="btn-form" type="submit" value="Dodaj">
             <input class="btn-form" type="reset" value="Wróć">
