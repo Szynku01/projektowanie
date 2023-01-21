@@ -22,7 +22,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
             <ul class="nav-list">
                 <div class="nav-item">
                     <i class="fa-solid fa-plus"></i>
-                    <li class="item"><a href="{{ route('stworzCennik') }}">Dodaj pozycje cennika</a></li>
+                    <li class="item"><a href="{{ route('cenniki') }}">Cenniki</a></li>
                 </div>
 
                 <div class="nav-item">

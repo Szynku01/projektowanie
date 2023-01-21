@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commoditie;
+use App\Models\Price_list_item;
 use Illuminate\Http\Request;
 
 class PriceListItemController extends Controller
@@ -23,7 +25,8 @@ class PriceListItemController extends Controller
      */
     public function create()
     {
-        return view('price_list_form');
+        $editMode = false;
+        return view('price_list_item_form', ['editMode' => $editMode]);
     }
 
     /**
@@ -56,7 +59,17 @@ class PriceListItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $price_list_item = Price_list_item::where('item_number', $id)->get()->first();
+        $commodity_code = $price_list_item->commodity_code;
+        $commodity_name = Commoditie::where('commodity_code', $commodity_code)->get()->first()->commodity_name;
+        $unit_shortcut = Commoditie::where('commodity_code', $commodity_code)->get()->first()->unit_shortcut;
+
+        $editMode = true;
+        return view('price_list_item_form', ['editMode' => $editMode,
+                                            'commodity_name' => $commodity_name,
+                                            'commodity_code' => $commodity_code,
+                                            'unit_shortcut' => $unit_shortcut,
+                                            'price' => $price_list_item->price]);
     }
 
     /**

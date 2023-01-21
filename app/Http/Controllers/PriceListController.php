@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Price_list;
+use App\Models\Price_list_item;
 use Illuminate\Http\Request;
 
 class PriceListController extends Controller
@@ -13,7 +15,9 @@ class PriceListController extends Controller
      */
     public function index()
     {
-        //
+        $price_lists = Price_list::all();
+
+        return view('price_list_all', ['price_lists' => $price_lists]);
     }
 
     /**
@@ -45,7 +49,20 @@ class PriceListController extends Controller
      */
     public function show($id)
     {
-        //
+        $price_lists = Price_list::all();
+
+        foreach($price_lists as $price_list)
+        {
+            $price_list_found = $price_list;
+            if ($price_list->price_list_number == $id)
+            {
+                break;
+            }
+        }
+
+        $price_list_items = Price_list_item::where('price_list_id', $price_list_found->price_list_number)->get();
+
+        return view('price_list', ['price_list' => $price_list_found, 'price_list_items' => $price_list_items]);
     }
 
     /**

@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Commoditie;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PriceListController;
 use App\Http\Controllers\CommoditieController;
 use App\Http\Controllers\PriceListItemController;
 use App\Http\Controllers\SalesInvoiceItemController;
-use App\Models\Commoditie;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,13 @@ Route::get('/dochodoweTowary', [SalesInvoiceItemController::class, 'dochodoweTow
 
 Route::get('/towarInfo', [SalesInvoiceItemController::class, 'towarInfo'])->name('towarInfo');
 
-Route::get('/stworzCennik', [PriceListItemController::class, 'create'])->name('stworzCennik');
+Route::get('/dodajPozycjeCennika', [PriceListItemController::class, 'create'])->name('dodajPozycjeCennika');
 
+Route::get('/cenniki', [PriceListController::class, 'index'])->name('cenniki');
+
+Route::get('/cennik/{id}', [PriceListController::class, 'show'])->name('cennik');
+
+Route::get('/edytujPozycjeCennika/{id}', [PriceListItemController::class, 'edit'])->name('edytujPozycjeCennika');
 
 
 
