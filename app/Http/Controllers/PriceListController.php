@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Price_list;
-use App\Models\Price_list_item;
 use Illuminate\Http\Request;
+use App\Models\Price_list_item;
+use Illuminate\Support\Facades\DB;
 
 class PriceListController extends Controller
 {
@@ -38,7 +39,15 @@ class PriceListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return('nawet tu nie wchodzi bo tego nie wyświetla :(');
+        $price_list = new Price_list;
+
+        $price_list->price_list_number = count(DB::table('Price_list')->get()) + 1;
+        $price_list->date_from = $request->date_from;
+        $price_list->date_to = $request->date_to;
+
+        $price_list->save();
+        return redirect('/cenniki');
     }
 
     /**
