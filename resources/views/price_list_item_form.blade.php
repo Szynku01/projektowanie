@@ -1,5 +1,5 @@
 @section('css')
-<link rel="stylesheet" href="{{ asset('cssfile/price_list_form.css') }}">
+<link rel="stylesheet" href="{{ asset('cssfile/price_list_item_form.css') }}">
 @endsection
 
 @extends('app')

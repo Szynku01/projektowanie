@@ -33,7 +33,7 @@
             </div>
 
             <div class="bottom">
-                <button class="btn">Stwórz nowy cennik</button>
+                <button class="btn"><a href="{{ route('stworzCennik') }}">Stwórz nowy cennik</a></button>
             </div>
         </div>
     </div>

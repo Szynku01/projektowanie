@@ -38,6 +38,8 @@ Route::get('/cennik/{id}', [PriceListController::class, 'show'])->name('cennik')
 
 Route::get('/edytujPozycjeCennika/{id}', [PriceListItemController::class, 'edit'])->name('edytujPozycjeCennika');
 
+Route::get('/stworzCennik', [PriceListController::class, 'create'])->name('stworzCennik');
+
 
 
 
