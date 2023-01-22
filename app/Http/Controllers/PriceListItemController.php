@@ -73,7 +73,8 @@ class PriceListItemController extends Controller
                                             'commodity_name' => $commodity_name,
                                             'commodity_code' => $commodity_code,
                                             'unit_shortcut' => $unit_shortcut,
-                                            'price' => $price_list_item->price]);
+                                            'price' => $price_list_item->price,
+                                            'id' => $id]);
     }
 
     /**
