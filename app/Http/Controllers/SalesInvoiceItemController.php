@@ -3,18 +3,62 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commoditie;
+use App\Models\Purchase_invoice_item;
 use Illuminate\Http\Request;
 use App\Models\Sales_invoice_item;
 use Illuminate\Support\Facades\DB;
 
 class SalesInvoiceItemController extends Controller
 {
-    public function towarInfo() {
-        return view('commodity_info');
+    public function towarInfo($commodity_code) {
+        $commodity = DB::table('commodities')->where('commodity_code', '=', $commodity_code)->get();
+        $faktura = DB::table('sales_invoice_items')->where('commodity_code', '=', $commodity_code)->get();
+        
+        return view('commodity_info', ['commodity' => $commodity, 'faktura' => $faktura[0]]);
     }
     
     public function dochodoweTowary() {
-        return view('most_profitable_commodities');
+        $towary = Commoditie::all();
+        $purchase_invoice_items = Purchase_invoice_item::all();
+        $sales_invoice_items = Sales_invoice_item::all();
+
+        $counts =
+        DB::table('sales_invoice_items')
+            ->selectRaw('commodity_code, COUNT(*) as count')
+            ->groupBy('commodity_code')
+            ->get();
+
+        $profits = [];
+        $slownik=[];
+
+        foreach($purchase_invoice_items as $purchase_invoice_item) {
+            foreach($sales_invoice_items as $sales_invoice_item) {
+                if($purchase_invoice_item->commodity_code == $sales_invoice_item->commodity_code) {
+                    foreach($counts as $count) {
+                        if($sales_invoice_item->commodity_code == $count->commodity_code) {
+                            $profits[$count->commodity_code] = ($sales_invoice_item->unit_price - $purchase_invoice_item->unit_price) 
+                                * $sales_invoice_item->quantity*$count->count;
+                            
+                            $slownik[$profits[$count->commodity_code]] = $count->commodity_code;
+                        }
+                    }
+                }
+            }
+        }
+        arsort($profits);
+        krsort($slownik);
+
+        $slownikTow=[];
+        foreach($slownik as $slow) {
+            foreach($towary as $towar) {
+                if($slow == $towar->commodity_code) {
+                    $slownikTow[$towar->commodity_code] =  $towar->commodity_name;
+                }
+            }
+        }
+
+        //dd($profits, $slownik, $slownikTow);
+        return view('most_profitable_commodities', ['profits' => $profits, 'slownik' => $slownik, 'slownikTow' => $slownikTow]);
     }
     
     public function popularneTowary() { 
@@ -34,7 +78,19 @@ class SalesInvoiceItemController extends Controller
             ->orderBy('count', 'asc')
             ->get();
 
-        return view('most_popular_commodities', ['mosts' => $mosts, 'leasts' => $leasts]);
+        $slownik = [];
+
+        foreach($mosts as $most) {
+            foreach($towary as $towar) {
+                if ($towar->commodity_code == $most->commodity_code) {
+                    $slownik[$most->commodity_code] = $towar->commodity_name;
+                }
+            }
+        }
+
+        // dd($slownik);
+
+        return view('most_popular_commodities', ['mosts' => $mosts, 'leasts' => $leasts, 'slownik' => $slownik]);
     }
     
     /**

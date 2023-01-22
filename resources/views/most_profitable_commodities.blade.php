@@ -17,6 +17,8 @@
 
             <div class="grid">
                 
+                @foreach ($slownik as $slow)
+        
                 <div class="card">
                     <div class="info">
                         <div class="img">
@@ -24,17 +26,22 @@
                         </div>
 
                         <div class="names">
-                            <h3>Towar A</h3>
-                            <p>Kategoria</p>
+                            <h3>
+                               {{ $slownikTow[$slow]}}
+                            </h3>
+                            <p>{{ $slow }}</p>
                         </div>
                     </div>
 
-                    <div class="profit">
-                        <h3>9843 zł</h3>
+                    <div class="more-info">
+                        <h3>{{ $profits[$slow] }}</h3>
+                        <button class="btn"><a href="{{ url('towarInfo/') . '$towary[$slow]->commodity_code'}}">Szczegoly</a></button>
                     </div>
                 </div>
 
-                <div class="card">
+                @endforeach
+
+                {{-- <div class="card">
                     <div class="info">
                         <div class="img">
                             <i class="fa-solid fa-image"></i>
@@ -49,7 +56,7 @@
                     <div class="profit">
                         <h3>1253 zł</h3>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
             

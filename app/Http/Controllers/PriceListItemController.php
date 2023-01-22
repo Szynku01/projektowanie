@@ -25,9 +25,13 @@ class PriceListItemController extends Controller
      */
     public function create()
     {
+        $commodities = Commoditie::all();
+        
         $editMode = false;
-        return view('price_list_item_form', ['editMode' => $editMode]);
-    }
+        return view('price_list_item_form', ['editMode' => $editMode,
+            'commodities' => $commodities,
+        ]);    
+        }
 
     /**
      * Store a newly created resource in storage.

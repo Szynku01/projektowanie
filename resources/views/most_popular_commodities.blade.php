@@ -18,6 +18,7 @@
 
             <div class="grid">
                 @foreach ($mosts as $most)
+        
                 <div class="card">
                     <div class="info">
                         <div class="img">
@@ -25,16 +26,19 @@
                         </div>
 
                         <div class="names">
-                            <h3>Towar A</h3>
+                            <h3>
+                               {{ $slownik[$most->commodity_code] }}
+                            </h3>
                             <p>{{ $most->commodity_code }}</p>
                         </div>
                     </div>
 
                     <div class="more-info">
                         <h3>{{ $most->count }}</h3>
-                        <button class="btn"><a href="{{ route('towarInfo') }}">Szczegoly</a></button>
+                        <button class="btn"><a href="{{ url('towarInfo/' . $most->commodity_code) }}">Szczegoly</a></button>
                     </div>
                 </div>
+
                 @endforeach
                
 
@@ -83,7 +87,7 @@
                         </div>
 
                         <div class="names">
-                            <h3>Towar A</h3>
+                            <h3>{{ $slownik[$least->commodity_code] }}</h3>
                             <p>{{ $least->commodity_code }}</p>
                         </div>
                     </div>

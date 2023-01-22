@@ -12,16 +12,21 @@
             <button class="btn-edit">Edytuj</button>
         </header>
 
+        @foreach ($commodity as $c)
+            
+        
         <div class="main-info">
             <div class="img">
                 <i class="fa-solid fa-image"></i>
             </div>
 
             <div class="names">
-                <h3>Nazwa: <span>Towar A</span></h3>
-                <h3>Kategoria: <span>Kategoria</span></h3>
+                <h3>Nazwa: <span>{{ $c->commodity_name }}</span></h3>
+                {{-- <h3>Kategoria: <span>Kategoria</span></h3> --}}
             </div>
         </div>
+
+        
 
         <div class="infos">
             <div class="info code">
@@ -29,7 +34,7 @@
                     <i class="fa-solid fa-barcode"></i>
                     <h2>Kod:</h2>
                 </div>
-                <p class="value">12345</p>
+                <p class="value">{{ $c->commodity_code }}</p>
             </div>
 
             <div class="info unit">
@@ -37,7 +42,7 @@
                     <i class="fa-solid fa-ruler"></i>
                     <h2>Jednostka miary:</h2>
                 </div>
-                <p class="value">metr</p>
+                <p class="value">{{ $c->unit_shortcut }}</p>
             </div>
 
             <div class="info price">
@@ -45,18 +50,20 @@
                     <i class="fa-solid fa-tag"></i>
                     <h2>Cena:</h2>
                 </div>
-                <p class="value">9999 zł z dnia 01.01.2023</p>
+                <p class="value">{{ $faktura->unit_price . ' zł' }}</p>
             </div>
 
-            <div class="info purchase-price">
+            {{-- <div class="info purchase-price">
                 <div class="label">
                     <i class="fa-solid fa-dollar-sign"></i>
                     <h2>Cena zakupu:</h2>
                 </div>
                 <p class="value">1234zł</p>
-            </div>
+            </div> --}}
 
         </div>
+
+        @endforeach
 
         <div class="bottom">
             <button class="btn"><a href="{{ route('popularneTowary') }}">Wróć</a></button> 

@@ -30,6 +30,8 @@ Route::get('/dochodoweTowary', [SalesInvoiceItemController::class, 'dochodoweTow
 
 Route::get('/towarInfo', [SalesInvoiceItemController::class, 'towarInfo'])->name('towarInfo');
 
+Route::get('/towarInfo/{commodity_code}', [SalesInvoiceItemController::class, 'towarInfo'])->name('towarInfo');
+
 Route::get('/dodajPozycjeCennika', [PriceListItemController::class, 'create'])->name('dodajPozycjeCennika');
 
 Route::get('/cenniki', [PriceListController::class, 'index'])->name('cenniki');
