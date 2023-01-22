@@ -40,7 +40,7 @@ Route::get('/edytujPozycjeCennika/{id}', [PriceListItemController::class, 'edit'
 
 Route::get('/stworzCennik', [PriceListController::class, 'create'])->name('stworzCennik');
 
-Route::post('/zapiszCennik', [PriceListController::class, 'store'])->name('zapiszCennik');
+Route::post('savePriceList', [PriceListController::class, 'store']);
 
 
 

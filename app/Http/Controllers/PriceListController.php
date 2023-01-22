@@ -39,14 +39,37 @@ class PriceListController extends Controller
      */
     public function store(Request $request)
     {
-        return('nawet tu nie wchodzi bo tego nie wyświetla :(');
-        $price_list = new Price_list;
+        // return('nawet tu nie wchodzi bo tego nie wyświetla :(');
+        // $price_list = new Price_list;
 
-        $price_list->price_list_number = count(DB::table('Price_list')->get()) + 1;
-        $price_list->date_from = $request->date_from;
-        $price_list->date_to = $request->date_to;
+        // $price_list->price_list_number = count(DB::table('Price_list')->get()) + 1;
+        // $price_list->date_from = $request->date_from;
+        // $price_list->date_to = $request->date_to;
 
+        // $price_list->save();
+        // return redirect('/cenniki');
+
+        // Walidacja
+        $request->validate([
+            'date_from' => 'required',
+            'date_to' => 'required'
+        ]);
+
+        // Pobieranie danych z formularza z $request
+        $date_from = $request->date_from;
+        $date_to = $request->date_to;
+
+        // Tworzenie pustej zmiennej cennika
+        $price_list = new Price_list();
+
+        // Przypisywanie do zmiennej $price_list danych z request
+        $price_list->date_from = $date_from;
+        $price_list->date_to = $date_to;
+
+        // Zapisywanie
         $price_list->save();
+
+        // Powrót do poprzedniej strony
         return redirect('/cenniki');
     }
 
