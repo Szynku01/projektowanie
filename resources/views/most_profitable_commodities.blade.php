@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="more-info">
-                        <h3>{{ $profits[$slow] }}</h3>
+                        <h3>{{ $profits[$slow] . "zł" }}</h3>
                         <button class="btn"><a href="{{ url('towarInfo/') . '$towary[$slow]->commodity_code'}}">Szczegoly</a></button>
                     </div>
                 </div>

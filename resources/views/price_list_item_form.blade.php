@@ -22,27 +22,45 @@
     @else
     <div class="wrapper">
     <h1 class="header">Dodawanie pozycji cennika</h1>
-        <form action="/cennik/{{$id}}" method="POST">
+        <form action="{{ url('savePriceListItem') }}" method="POST">
             @csrf
-            <label class="label">Nazwa towaru</label> <select name="Nazwa towaru">
+            <div>
+            <label class="label">Nazwa towaru</label> <select name="commodity_name">
+                <option value="Nazwa towaru<"></option>
                 @foreach ($commodities as $commodity_name)
                     <option value="Nazwa towaru">{{ $commodity_name->commodity_name }}</option>
                 @endforeach
             </select>
-            <label class="label">Kod towaru</label> <select name="Kod towaru">
+            </div>
+            <div>
+            <label class="label">Kod towaru</label> <select name="commodity_code">
+                <option value="Kod towaru"></option>
                 @foreach ($commodities as $commodity_code)
                     <option value="Kod towaru">{{ $commodity_code->commodity_code }}</option>
                 @endforeach
             </select>
-            <label class="label">Jednostka miary</label> <select name="Jednostka miary">
-                @foreach ($commodities as $commodity_code)
-                    <option value="Jednostka miary">{{ $commodity_code->unit_shortcut }}</option>
+             </div>
+            <div>
+            <label class="label">Jednostka miary</label> <select name="unit_shortcut">
+                <option value="Jednostka miary"></option>
+                @foreach ($measurement_units as $measurement_unit)
+                    <option value="Jednostka miary">{{ $measurement_unit->unit_shortcut }}</option>
                 @endforeach
             </select>
-            <label class="label">Cena jednostkowa</label> <input type="text" name="Cena jednostkowa" placeholder="Cena jednostkowa"/>
-
+            </div>
+            <div>
+                <label class="label">Cena jednostkowa</label> <input type="text" name="price" placeholder="Cena jednostkowa"/>
+            </div>
+            <div>
+            <label class="label">Cennik</label> <select name="price_list_id">
+                <option value="Wybierz cennik"></option>
+                @foreach ($price_list as $price_list_number)
+                    <option value="Cennik">{{ $price_list_number->price_list_number }}</option>
+                @endforeach
+            </select>
+            </div>
             <input class="btn-form" type="submit" value="Dodaj">
-            <input class="btn-form" type="reset" value="Wróć">
+            <input class="btn-form" type="reset" value="Wróć" href="{{ url('/cenniki') }}">
 
         </form>
     </div>

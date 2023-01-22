@@ -44,5 +44,8 @@ Route::get('/stworzCennik', [PriceListController::class, 'create'])->name('stwor
 
 Route::post('savePriceList', [PriceListController::class, 'store']);
 
+Route::post('savePriceListItem', [PriceListItemController::class, 'store']);
+
+
 
 

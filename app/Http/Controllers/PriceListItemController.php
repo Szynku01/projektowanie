@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commoditie;
+use App\Models\Measurement_unit;
+use App\Models\Price_list;
 use App\Models\Price_list_item;
 use Illuminate\Http\Request;
 
@@ -26,12 +28,16 @@ class PriceListItemController extends Controller
     public function create()
     {
         $commodities = Commoditie::all();
+        $measurement_units = Measurement_unit::all();
+        $price_list = Price_list::all();
         
         $editMode = false;
         return view('price_list_item_form', ['editMode' => $editMode,
             'commodities' => $commodities,
+            'measurement_units' => $measurement_units,
+            'price_list' => $price_list,
         ]);    
-        }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,7 +47,30 @@ class PriceListItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'price' => 'required',
+            'commodity_code' => 'required',
+            'price_list_id' => 'required',
+        ]);
+
+        // Pobieranie danych z formularza z $request
+        $price = $request->price;
+        $commodity_code = $request->commodity_code;
+        $price_list_id = $request->price_list_id;
+
+        // Tworzenie pustej zmiennej cennika
+        $price_list_item = new Price_list_item();
+
+        // Przypisywanie do zmiennej $price_list danych z request
+        $price_list_item->price = $price;
+        $price_list_item->commodity_code = $commodity_code;
+        $price_list_item->price_list_id = $price_list_id;
+
+        // Zapisywanie
+        $price_list_item->save();
+
+        // Powrót do poprzedniej strony
+        return redirect('/cenniki');
     }
 
     /**
