@@ -57,6 +57,7 @@ class PriceListItemController extends Controller
         $price = $request->price;
         $commodity_code = $request->commodity_code;
         $price_list_id = $request->price_list_id;
+    
 
         // Tworzenie pustej zmiennej cennika
         $price_list_item = new Price_list_item();
@@ -96,6 +97,7 @@ class PriceListItemController extends Controller
         $commodity_code = $price_list_item->commodity_code;
         $commodity_name = Commoditie::where('commodity_code', $commodity_code)->get()->first()->commodity_name;
         $unit_shortcut = Commoditie::where('commodity_code', $commodity_code)->get()->first()->unit_shortcut;
+        $price_list_id = $price_list_item->price_list_id;
 
         $editMode = true;
         return view('price_list_item_form', ['editMode' => $editMode,
@@ -103,19 +105,29 @@ class PriceListItemController extends Controller
                                             'commodity_code' => $commodity_code,
                                             'unit_shortcut' => $unit_shortcut,
                                             'price' => $price_list_item->price,
-                                            'id' => $id]);
+                                            'id' => $id,
+                                            'price_list_id' => $price_list_id]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // Aktualizacja ceny pozycji cennika
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'price' => 'required',
+        ]);
+
+        // Pobieranie danych z formularza
+        $price = $request->price;   
+        $price_list_id = $request->price_list_id;
+         
+        // Znalezienie pozycji cennika po id i zaktualizowanie jego ceny
+        Price_list_item::where('item_number', $id)
+            ->update([
+                'price' => $price,
+            ]);
+
+        // Powrót do pozycji cennika
+        return redirect("/cennik/$price_list_id");
     }
 
     /**

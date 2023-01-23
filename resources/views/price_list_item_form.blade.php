@@ -7,15 +7,17 @@
     @if ($editMode == 1)
     <div class="wrapper">
     <h1 class="header">Edycja pozycji cennika</h1>
-        <form action="/cennik/{{$id}}" method="POST">
+        <form action="{{ url('zaktualizujPozycjeCennika', ['id' => $id]) }}" method="POST">
             @csrf
-            <label class="label">Nazwa towaru</label> <input type="text" name="Nazwa towaru" placeholder="Nazwa towaru" value="{{ $commodity_name }}"/>
-            <label class="label">Kod towaru</label> <input type="text" name="Kod towaru" placeholder="Kod towaru" value="{{ $commodity_code }}"/>
-            <label class="label">Jednostka miary</label> <input type="text" name="Jednostka miary" placeholder="Jednostka miary" value="{{ $unit_shortcut }}"/>
-            <label class="label">Cena jednostkowa</label> <input type="text" name="Cena jednostkowa" placeholder="Cena jednostkowa" value="{{ $price }}"/>
+            <label class="label">Identyfikator cennika</label> <input type="text" name="price_list_id" placeholder="Identyfikator cennika" value="{{ $price_list_id }}" readonly/>
+            <label class="label">Nazwa towaru</label> <input type="text" name="commodity_name" placeholder="Nazwa towaru" value="{{ $commodity_name }}" readonly/>
+            <label class="label">Kod towaru</label> <input type="text" name="commodity_code" placeholder="Kod towaru" value="{{ $commodity_code }}" readonly/>
+            <label class="label">Jednostka miary</label> <input type="text" name="unit_shortcut" placeholder="Jednostka miary" value="{{ $unit_shortcut }}" readonly/>
+            <label class="label">Cena jednostkowa</label> <input type="text" name="price" placeholder="Cena jednostkowa" value="{{ $price }}"/>
 
             <input class="btn-form" type="submit" value="Zapisz">
-            <input class="btn-form" type="reset" value="Wróć">
+            {{-- TODO zrobic styl do przycisku wróć --}}
+            <a href="{{ url('/cennik', ['id' => $price_list_id]) }}" class="btn-form">Wróć</a>
 
         </form>
     </div>

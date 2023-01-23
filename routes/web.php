@@ -22,15 +22,13 @@ Route::get('/', function () {
     return view('app');
 });
 
-
-
 Route::get('/popularneTowary', [SalesInvoiceItemController::class, 'popularneTowary'])->name('popularneTowary');
 
 Route::get('/dochodoweTowary', [SalesInvoiceItemController::class, 'dochodoweTowary'])->name('dochodoweTowary');
 
 Route::get('/towarInfo', [SalesInvoiceItemController::class, 'towarInfo'])->name('towarInfo');
 
-Route::get('/towarInfo/{commodity_code}', [SalesInvoiceItemController::class, 'towarInfo'])->name('towarInfo');
+Route::get('/towarInfo/{commodity_code}', [SalesInvoiceItemController::class, 'towarInfo'])->name('towarInfoKod');
 
 Route::get('/dodajPozycjeCennika', [PriceListItemController::class, 'create'])->name('dodajPozycjeCennika');
 
@@ -42,7 +40,9 @@ Route::get('/edytujPozycjeCennika/{id}', [PriceListItemController::class, 'edit'
 
 Route::get('/stworzCennik', [PriceListController::class, 'create'])->name('stworzCennik');
 
-Route::post('savePriceList', [PriceListController::class, 'store']);
+Route::post('/zapiszCennik', [PriceListController::class, 'store'])->name('zapiszCennik');
+
+Route::post('/zaktualizujPozycjeCennika/{id}', [PriceListItemController::class, 'update'])->name('zaktualizujPozycjeCennika');
 
 Route::post('savePriceListItem', [PriceListItemController::class, 'store']);
 
