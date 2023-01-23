@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('commodities', function (Blueprint $table) {
             $table->string('commodity_code', 4)->unique();
-            $table->string('commodity_name',10)->unique();
+            $table->string('commodity_name',50)->unique();
             $table->string('unit_shortcut'); 
             $table->foreign('unit_shortcut')
                 ->references('unit_shortcut')
