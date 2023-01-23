@@ -10,7 +10,7 @@
 @section('content')
 <div class="wrapper">
     <div class="stats most-popular">
-        <h1 class="header">Cennik</h1>
+        <h1 class="header">{{ $date_from }} - {{ $date_to }}</h1>
 
         <div class="">
 

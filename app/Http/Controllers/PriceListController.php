@@ -40,10 +40,11 @@ class PriceListController extends Controller
     public function store(Request $request)
     {
         // Walidacja
-        $request->validate([
-            'date_from' => 'required',
-            'date_to' => 'required'
-        ]);
+        if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$request->date_from)
+            || !preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$request->date_to))
+        {
+            return redirect('/cenniki');
+        }
 
         // Pobieranie danych z formularza z $request
         $date_from = $request->date_from;
@@ -84,7 +85,12 @@ class PriceListController extends Controller
 
         $price_list_items = Price_list_item::where('price_list_id', $price_list_found->price_list_number)->get();
 
-        return view('price_list', ['price_list' => $price_list_found, 'price_list_items' => $price_list_items]);
+        return view('price_list', [
+            'price_list' => $price_list_found,
+            'price_list_items' => $price_list_items,
+            'date_from' => $price_list_found->date_from,
+            'date_to' => $price_list_found->date_to
+        ]);
     }
 
     /**

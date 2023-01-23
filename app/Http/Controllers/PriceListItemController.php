@@ -113,7 +113,7 @@ class PriceListItemController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'price' => 'required',
+            'price' => 'required|numeric|min:0|not_in:0',
         ]);
 
         // Pobieranie danych z formularza
