@@ -1,3 +1,6 @@
+@php
+    use App\Models\Commoditie;
+@endphp
 <!-- Widok pojedynczego cennika -->
 @section('css')
 <link rel="stylesheet" href="{{ asset('cssfile/price_list.css') }}">
@@ -13,16 +16,23 @@
 
             <div class="grid">
                 @foreach($price_list_items as $price_list_item)
+                @php
+                    $commodity_code = $price_list_item->commodity_code;
+                    $commodity = Commoditie::whereCommodityCode($commodity_code)->first();
+                    $commodity_name = $commodity->commodity_name;
+                    $unit_shortcut = $commodity->unit_shortcut;
+                @endphp
                 <div class="card">
                     <div class="info">
-                        <div class="img">
-                            <i class="fa-solid fa-image"></i>
-                        </div>
 
                         <div class="names">
-                            <p>{{ $price_list_item->commodity_code }}
+                            <p>{{ $commodity_name }}
                                 {!! "&nbsp;" !!}
-                                {{ $price_list_item->price }} 
+                                {{ $price_list_item->commodity_code }} 
+                                {!! "&nbsp;" !!}
+                                {{ $price_list_item->price }}
+                                {!! "&nbsp;" !!}
+                                {{ $unit_shortcut}} 
                             </p>
                         </div>
                     </div>

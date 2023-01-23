@@ -15,9 +15,6 @@
                 @foreach ($price_lists as $price_list)
                 <div class="card">
                     <div class="info">
-                        <div class="img">
-                            <i class="fa-solid fa-image"></i>
-                        </div>
 
                         <div class="names">
                             <p>{{ $price_list->date_from }}</p>
