@@ -22,8 +22,6 @@ Route::get('/', function () {
     return view('app');
 });
 
-
-
 Route::get('/popularneTowary', [SalesInvoiceItemController::class, 'popularneTowary'])->name('popularneTowary');
 
 Route::get('/dochodoweTowary', [SalesInvoiceItemController::class, 'dochodoweTowary'])->name('dochodoweTowary');
